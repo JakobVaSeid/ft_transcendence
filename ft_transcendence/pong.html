@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pong Game</title>
+  <link href="main.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+    <body class="bg-gray-900 text-white font-montserrat">
+      <header>
+        <div class="w-full flex justify-center py6"></div>
+          <div class="text-2xl">Pong Game</div>
+        </header>
+        <!-- Game Stats -->
+        <div class="flex justify-between mt-4">
+          <div class="text-lg"><strong> Player_1: </strong><span id="player1-score"><strong>3</strong></span></div>
+          <div class="text-lg">Ball Speed: <span id="ball-speed">x0</span></div>
+          <div class="mx-4 text-lg"><strong> Player_2: </strong> <span id="player2-score"><strong>5</strong></span></div>
+        </div>
+       <!-- Container für alles -->
+<div class="flex justify-center mt-10">
+    <!-- Rectangle -->
+    <div class="relative w-full max-w-[800px] aspect-[2/1] border-3 border-white">
+      <canvas id="pong" class="w-full h-full"></canvas>
+      <!-- Linker Balken -->
+      <div class="absolute top-1/2 left-2 h-1/5 w-2 bg-white -translate-y-1/2"></div>
+  
+      <!-- Rechter Balken -->
+      <div class="absolute top-1/2 right-2 h-1/5 w-2 bg-white -translate-y-1/2"></div>
+  
+      <!-- Ball -->
+      <div class="absolute top-1/2 left-1/2 h-10 w-10 rounded-full bg-cover bg-center -translate-x-1/2 -translate-y-1/2" style="background-image: url('/images/miheider.jpg');"></div>
+  
+    </div>
+  </div>
+  
+  <script>
+    const ball = document.getElementById('ball');
+    let posX = 50; // Start bei 50%
+    let posY = 50;
+    let speedX = 0.3; // Geschwindigkeit in %
+    let speedY = 0.2;
+  
+    function updateBallPosition() {
+      posX += speedX;
+      posY += speedY;
+  
+      // Begrenzung (simple Wände)
+      if (posX > 100 || posX < 0) speedX *= -1;
+      if (posY > 100 || posY < 0) speedY *= -1;
+  
+      ball.style.left = `${posX}%`;
+      ball.style.top = `${posY}%`;
+  
+      requestAnimationFrame(updateBallPosition);
+    }
+  
+    requestAnimationFrame(updateBallPosition);
+  </script>
+    </body>            
+</html>
