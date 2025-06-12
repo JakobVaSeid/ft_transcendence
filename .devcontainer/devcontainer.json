@@ -1,11 +1,11 @@
 {
   "name": "Tailwind Frontend Dev",
-	"dockerFile": "Dockerfile",
+"dockerFile": "Dockerfile",
   "mounts": [
 		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
 		"source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
 	],
-  "workspaceFolder": "/workspace/ft_transcendence"
+  "workspaceFolder": "/workspaces/ft_transcendence"
   // "settings": {
   //   "terminal.integrated.defaultProfile.linux": "sh"
   // },
