@@ -15,15 +15,17 @@
           <div class="text-2xl">Pong Game</div>
         </header>
         <!-- Game Stats -->
-        <div class="flex justify-between mt-4 border-2 border-rose-200">
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="flex justify-between mt-4 border-2 border-rose-700 relative w-full max-w-[800px] aspect-[6/1] ">
           <div class="text-lg"><strong> Player_1: </strong><span id="player1-score"><strong>3</strong></span></div>
           <div class="text-lg">Ball Speed: <span id="ball-speed">x0</span></div>
           <div class="mx-4 text-lg"><strong> Player_2: </strong> <span id="player2-score"><strong>5</strong></span></div>
         </div>
+      </div>
        <!-- Container für alles -->
 <div class="flex justify-center mt-10">
-    <!-- Rectangle -->
-    <div class="relative w-full max-w-[800px] aspect-[2/1] border-3 border-white">
+    <!-- Rectangle Spielfeld -->
+    <div class="relative w-full max-w-[800px] aspect-[2/1] border-3 border-white back">
       <canvas id="pong" class="w-full h-full"></canvas>
       <!-- Linker Balken -->
       <div class="absolute top-1/2 left-2 h-1/5 w-2 bg-white -translate-y-1/2"></div>
