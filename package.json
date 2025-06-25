@@ -6,6 +6,6 @@
     "tailwindcss": "^4.1.10"
   },
   "scripts": {
-  "dev": "tailwindcss -i ./tailwind.css -o ./tailwind-built.css --minify --watch"
+  "dev": "tailwindcss -i ./tailwind.css -o ./tailwind-built.css --watch"
 }
 }
