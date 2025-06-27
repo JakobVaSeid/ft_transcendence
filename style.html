@@ -12,15 +12,31 @@
     <div class="flex flex-row">
         <div class="title text-6xl font-bold w-28 h-28 effect rounded-3xl flex justify-center items-center">Ui</div>
         <form class="flex flex-col h-28 bg-red-200 py-4 justify-between">
-            <label for="option-1" class="effect">
-                <input type="radio" id="option-1" name="selector">
+            <label for="option-1" class="effect rounded-full">
+                <input type="radio" id="option-1" name="selector" checked>
                 <span></span>
             </label>
-            <label for="option-2">
+            <label for="option-2" class="effect rounded-full">
                 <input type="radio" id="option-2" name="selector">
                 <span></span>
             </label>
         </form>
+        <div class="flex flex-column bg green-300 h-28 justify-between py-4">
+          <label>
+            <div class="switch">
+                <input type="checkbock">
+                <div class="switch-bg"></div>
+                <div class="switch-indicator"></div>
+            </div>
+            <span></span>
+          </label>
+          <label for="">
+            <div>
+                <input type="checkbock">
+            </div>
+            <span></span>
+          </label>
+        </div>
     </div>
   </div>
 </body>
