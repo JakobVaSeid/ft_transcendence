@@ -19,6 +19,11 @@ body {
              -5px -5px 13px #ffffff;
 }
 
+.effect-inner{
+    background: #E0E4E7;
+    box-shadow:  inset 4px 3px 3px 0px #b8c7dd, inset -2px -4px 4px -0px #fff;
+}
+
 .title {
     color: rgb(236, 126, 218, 0.85);
     text-shadow: 1px 1px 2px #e0e4e7, 0 0 0 black, 1px 4px 6px, #def;
@@ -49,8 +54,17 @@ input[type=radio]:checked::before {
     height: 12px;
     background: #44dbe5;
 }
+
 input[type=checkbox] {
     display: none;
+}
+
+input[type=text] {
+    background: none;
+}
+
+input[type=text]:focus {
+    outline: none;
 }
 
 .switch{
@@ -80,6 +94,53 @@ input[type=checkbox] {
 
 input[type=checkbox]:checked~.switch-indicator {
     transform: translateX(85%);
+    box-shadow:  4px 4px 8px #b8c7dd,
+             -4px -4px 8px #ffffff;
+}
+
+input[type=checkbox]:checked~.switch-bg {
+    background: #5685FF;
+    box-shadow: 4px 3px 3px 0px #4272ee inset;
+}
+
+.app-color-gray {
+    color: #646464;
+}
+
+.app-color-pink {
+    color: #EC7EDA;
+}
+
+.app-bg-blue-1 {
+    background: #78BFFF;
+}
+
+.app-color-blue-1 {
+    color: #78BFFF;
+}
+
+.app-bg-blue-2 {
+    background: #5685FF;
+}
+
+.app-color-blue-2 {
+    color: #5685FF;
+}
+
+.app-bg-lavender {
+    background: #576EE6;
+}
+
+.app-bg-pink {
+    background: #EC7EDA;
+}
+
+.app-bg-teal {
+    background: #44DBE4;
+}
+
+.app-bg-green {
+    background: #68DEB4;
 }
 
 @theme {
