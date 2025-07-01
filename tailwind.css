@@ -4,13 +4,16 @@
 
 
 body {
-    background-color:  #f9f9f9;
+    background-color:  #7e97a7;
 }
 
 .app-container {
-    width: 800px;
-    height: 600px;
     background: #e0e4e7
+}
+
+
+.dark .app-container {
+  background: #1e293b; /* dunkles, entspanntes Slate-Blau */
 }
 
 .effect {
@@ -19,9 +22,44 @@ body {
              -5px -5px 13px #ffffff;
 }
 
+.effect-button {
+    background: #E0E4E7;
+    box-shadow:  5px 5px 13px #b8c7dd,
+             -5px -5px 13px #ffffff;
+}
+
+.effect-button:hover {
+    background: #cfd3d6;
+}
+
 .effect-inner{
     background: #E0E4E7;
     box-shadow:  inset 4px 3px 3px 0px #b8c7dd, inset -2px -4px 4px -0px #fff;
+}
+
+.dark .effect {
+  background: #1e293b;
+  box-shadow:
+    5px 5px 13px #0f172a, 
+   -5px -5px 13px #334155;   
+}
+
+.dark .effect-button {
+  background: #1e293b;
+  box-shadow:
+    5px 5px 13px #0f172a,
+   -5px -5px 13px #334155;
+}
+
+.dark .effect-button:hover {
+  background: #27364a; /* leicht heller fürs Hover */
+}
+
+.dark .effect-inner {
+  background: #1e293b;
+  box-shadow:
+    inset 4px 3px 3px 0px #0f172a,
+    inset -2px -4px 4px 0px #334155;
 }
 
 .title {
@@ -81,6 +119,11 @@ input[type=text]:focus {
     box-shadow: inset  7px 2px 2px 0px #c2cad5, inset -3px -2px 2px 0px #f7f7f7;
 }
 
+.dark .switch-bg {
+    background: #2a3446;
+    box-shadow: inset 7px 2px 5px 0px #1a2230, inset -3px -2px 5px 0px #3c4a6b;
+}
+
 .switch-indicator {
     top: -4px;
     position: absolute;
@@ -90,6 +133,11 @@ input[type=text]:focus {
     background: #E0E4E7;
     box-shadow:  4px 4px 8px #b8c7dd,
              -4px -4px 8px #ffffff;
+}
+
+.dark .switch-indicator {
+    background: #2a3446;
+    box-shadow: 4px 4px 8px #1a2230, -4px -4px 8px #3c4a6b;
 }
 
 input[type=checkbox]:checked~.switch-indicator {
@@ -103,6 +151,17 @@ input[type=checkbox]:checked~.switch-bg {
     box-shadow: 4px 3px 3px 0px #4272ee inset;
 }
 
+.dark input[type=checkbox]:checked ~ .switch-indicator {
+    transform: translateX(85%);
+    box-shadow: 4px 4px 8px #1a2230, -4px -4px 8px #3c4a6b;
+    background: #2a3446;
+}
+
+.dark input[type=checkbox]:checked ~ .switch-bg {
+    background: #3759e7; /* Etwas dunkleres Blau */
+    box-shadow: 4px 3px 3px 0px #2748c3 inset;
+}
+
 .app-color-gray {
     color: #646464;
 }
@@ -111,20 +170,52 @@ input[type=checkbox]:checked~.switch-bg {
     color: #EC7EDA;
 }
 
-.app-bg-blue-1 {
-    background: #78BFFF;
-}
-
 .app-color-blue-1 {
     color: #78BFFF;
 }
 
-.app-bg-blue-2 {
-    background: #5685FF;
-}
-
 .app-color-blue-2 {
     color: #5685FF;
+}
+
+.app-color-orange {
+    color: #e4b144;
+}
+
+.text-color-blue-1 {
+    color: #78BFFF;
+}
+
+.text-color-pink {
+    color: #EC7EDA;
+}
+
+.text-color-green {
+    color: #68DEB4;
+}
+
+.text-color-teal {
+    color: #44DBE4;
+}
+
+.text-color-orange {
+    color: #e4b144;
+}
+
+.text-color-lavender {
+    color: #576EE6;
+}
+
+.app-bg-orange {
+    background: #e4b144;
+}
+
+.app-bg-blue-1 {
+    background: #78BFFF;
+}
+
+.app-bg-blue-2 {
+    background: #5685FF;
 }
 
 .app-bg-lavender {
