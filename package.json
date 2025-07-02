@@ -1,11 +1,12 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.7"
+    "@tailwindcss/cli": "^4.1.7",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "tailwindcss": "^4.1.10"
   },
   "scripts": {
-  "dev": "tailwindcss -i ./tailwind.css -o ./tailwind-built.css --watch"
-}
+    "dev": "tailwindcss -i ./tailwind.css -o ./tailwind-built.css --watch"
+  }
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pong Game</title>
+  <link href="tailwind-built.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  </head>
+    <body class="app-container bg-white text-black dark:bg-black dark:text-white">
+    <nav class="flex items-center effect justify-between p-4 bg-white dark:bg-gray-900 shadow relative">
+  <div class="flex gap-4">
+    <a href="#pong" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Pong</strong></a>
+    <a href="#chat" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Chat</strong></a>
+  </div>
+  <!-- Darkmode Toggle -->
+  <div class="flex items-center gap-3 rounded-3xl w-max cursor-pointer select-none">
+    <i id="icon-sun" class="fa-solid fa-sun text-yellow-400"></i>
+    <label class="switch relative">
+      <input type="checkbox" id="dark-toggle" class="sr-only" />
+      <div class="switch-bg"></div>
+      <div class="switch-indicator"></div>
+    </label>
+    <i id="icon-moon" class="fa-solid fa-moon text-gray-600"></i>
+  </div>
+</nav>
+    <main id="app" class="p-4"></main>
+    <script type="module" src="./dist/app.js"></script>
+  </body>
+</html>
