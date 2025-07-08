@@ -1,9 +1,9 @@
 import { renderPong } from "./views/pong.js";
 import { renderChat } from "./views/chat.js";
 import { initChat } from "./views/chat.js";
-import "./views/darkmode.js"; // Import dark mode functionality
+import "./views/darkmode.js";
 import { initDarkmode } from "./views/darkmode.js";
-import { renderLogin } from "./views/login.js"; // Import login view
+import { renderLogin } from "./views/login.js";
 function router() {
     const hash = window.location.hash || "#login";
     const app = document.getElementById("app");
@@ -12,14 +12,15 @@ function router() {
     initDarkmode(); // Initialize dark mode functionality
     switch (hash) {
         case "#login":
-            app.innerHTML = renderLogin(); // Render login view
+            app.innerHTML = renderLogin();
             break;
         case "#pong":
             app.innerHTML = renderPong();
+            initChat();
             break;
         case "#chat":
             app.innerHTML = renderChat();
-            initChat(); // Initialize chat functionality
+            initChat();
             break;
         default:
             app.innerHTML = "<p>Seite nicht gefunden.</p>";

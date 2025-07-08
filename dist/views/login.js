@@ -29,7 +29,7 @@ export function renderLogin() {
           <label for="option-2" class="flex items-center gap-2 cursor-pointer">
             <input type="radio" id="option-2" name="selector"
                    class="h-6 w-6 accent-violet-600 focus:ring-violet-500">
-            <span class="text-sm text-color-lavender"><strong>I want to recive mails for marketing perpose</strong></span>
+            <span class="text-sm text-color-lavender"><strong>I want to recive mails for marketing purpose</strong></span>
           </label>
         </form>
         <button type="submit" class="btn-submi effect-button"><strong class="text-color-red">Login</strong></button>
