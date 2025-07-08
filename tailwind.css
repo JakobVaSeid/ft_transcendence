@@ -13,7 +13,7 @@ body {
 
 
 .dark .app-container {
-  background: #1e293b; /* dunkles, entspanntes Slate-Blau */
+  background: #1e293b;
 }
 
 .effect {
@@ -91,6 +91,22 @@ input[type=radio]:checked::before {
     width: 12px;
     height: 12px;
     background: #44dbe5;
+}
+
+.dark input[type=radio]{
+    background: #2a3446;                
+    box-shadow:  4px 4px 8px #1a2230,  
+             -4px -4px 8px #3c4a6b;     
+}
+
+.dark input[type=radio]:checked{
+    background: #3c4a6b;              
+    box-shadow:  4px 4px 8px #1a2230,
+             -4px -4px 8px #4d5b7d;
+}
+
+.dark input[type=radio]:checked::before{
+    background: #44dbe5;              
 }
 
 input[type=checkbox] {
@@ -182,6 +198,10 @@ input[type=checkbox]:checked~.switch-bg {
     color: #e4b144;
 }
 
+.app-color-teal{
+    color: #44DBE4;
+}
+
 .text-color-blue-1 {
     color: #78BFFF;
 }
@@ -196,6 +216,10 @@ input[type=checkbox]:checked~.switch-bg {
 
 .text-color-teal {
     color: #44DBE4;
+}
+
+.text-color-red {
+    color: #e45c44;
 }
 
 .text-color-orange {
