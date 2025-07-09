@@ -1,43 +1,288 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TailwindCSS</title>
+  <title>Pong Game</title>
   <link href="tailwind-built.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
- rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class ="container py-6 flex items-center justify-between">
-      <div class="text-2xl"> JAM<strong>transcendence</strong></div>
-    <nav> 
-      <ul class="flex items-center gap-4">
-        <li> 
-          <a href="overview.html">Overview</a>
-        </li>
-        <li> 
-          <a href="gamemodes.html">gamemodes</a>
-        </li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li>
-          <a href="SPA.html">Test</a>
-        </li>
-        <li>
-          <a href="pong.html">Game</a>
-        </li>
-        <li>
-          <a href="style.html">Style</a>
-        </li>
-      </ul>
-    </nav>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  </head>
+    <body class="app-container bg-white text-black dark:bg-black dark:text-white">
+    <nav class="flex items-center effect justify-between p-4 bg-white dark:bg-gray-900 shadow relative">
+  <div class="flex gap-4">
+    <a href="#login" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Login</strong></a>
+    <a href="#pong" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Pong</strong></a>
+    <a href="#overview" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Overview</strong></a>
+    <a href="#profil" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Profile</strong></a>
+    <a href="./style.html" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Style</strong></a>
+  </div>
+  <div class="flex gap-4">
+  
+  </div>
+  <!-- Darkmode Toggle, Profile & Settings -->
+  <div class="flex items-center gap-3 rounded-3xl w-max cursor-pointer select-none">
+    <a href="#profil">
+      <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center">
+        <i class="fa-solid fa-user app-color-gray"></i>
+      </div>
+    </a>
+  <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center">
+    <i class="fa-solid fa-language app-color-pink"></i>
+  </div>
+  <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center">
+    <i class="fa-solid fa-gear app-color-gray"></i>
+  </div>
+    <i id="icon-sun" class="fa-solid fa-sun text-yellow-400 dark:text-gray-600"></i>
+    <label class="switch relative">
+      <input type="checkbox" id="dark-toggle" class="sr-only" />
+      <div class="switch-bg"></div>
+      <div class="switch-indicator"></div>
+    </label>
+    <i id="icon-moon" class="fa-solid fa-moon text-gray-600 dark:text-yellow-400"></i>
+  </div>
+</nav>
+    <main id="app" class="p-4"></main>
+    <script type="module" src="./dist/app.js"></script>
+    <!-- LoginLayout -->
+<template id="login-template">
+  <div class ="flex items-center justify-center h-screen">
+    <div class="card flex-center flex-col app-container items-center">
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6">
+        <strong> Login for amazing Pong </strong>
+      </div>
+      <form id="login-form" class="flex flex-col gap-4 mt-6">
+        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+          <i class="fa-solid fa-user app-color-pink"></i>
+          <input type="text" placeholder="Username" class="ml-2 app-color-gray" required>
+        </div>
+        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+          <i class="fa-solid fa-lock app-color-blue-1"></i>
+          <input type="password" placeholder="Password" class="ml-2 app-color-gray" required>
+        </div>
+        <form class="flex flex-col h-28 py-4 justify-between">
+          <!-- Option 1 -->
+          <label for="option-1" class="flex items-center gap-2 cursor-pointer">
+            <!-- h‑6 w‑6 = 24 px‑Kreis; accent-violet-600 färbt den INNEREN Punkt -->
+            <input type="radio" id="option-1" name="selector"
+                   class="h-6 w-6 accent-violet-600 focus:ring-violet-500"
+                   checked>
+            <span class="text-sm text-color-orange"><strong>Ich möchte Mails zu Marketing zwecken erhalten</strong></span>
+          </label>
+        
+          <!-- Option 2 -->
+          <label for="option-2" class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" id="option-2" name="selector"
+                   class="h-6 w-6 accent-violet-600 focus:ring-violet-500">
+            <span class="text-sm text-color-lavender"><strong>I want to recive mails for marketing purpose</strong></span>
+          </label>
+        </form>
+        <button type="submit" class="btn-submi effect-button"><strong class="text-color-red">Login</strong></button>
+      </form>
+      <p class="text-sm text-gray-500 mt-4">Don't have an account? <a href="#" class="text-blue-500">Sign up</a></p>
     </div>
-  </header>
-  </h1>
-</body>
+  </div>
+</template>
+<!-- PongLayout -->
+<template id="pong-template">
+      <header>
+        <div class="w-full flex justify-center py6 items-center">
+          <div class="effect rounded-3xl py-10 px-10 text-2xl title mb-4 mt-4 text-4xl"><strong>Pong The Game</strong></div>
+        </div>
+        </header>
+        <!-- Game Stats -->
+      <div class="flex justify-center">
+          <div class="flex w-full items-center mb-2 items-center justify-between max-w-[800px]">
+              <div class="text-lg effect text-color-lavender rounded-3xl py-2 px-4"><strong> Norbert: </strong><span id="player1-score"><strong>3</strong></span></div>
+              <div class="text-lg effect text-color-teal rounded-3xl py-2 px-4"><strong> Ball-speed: </strong><span id="ball-speed"><strong> x0 </strong></span></div>
+              <div class="text-lg text-color-orange effect rounded-3xl py-2 px-4"><strong> Herbert: </strong> <span id="player2-score"><strong>5</strong></span></div>
+          </div>
+      </div>
+       <!-- Container für alles -->
+<div class="flex justify-center">
+    <!-- Rectangle Spielfeld -->
+    <div class="relative effect-inner w-full max-w-[800px] aspect-[2/1] rounded-3xl border-black back">
+      <canvas id="pong" class="w-full h-full"></canvas>
+      <!-- Linker Balken -->
+      <div class="absolute effect top-1/2 left-2 h-1/5 w-3 app-bg-lavender rounded-3xl -translate-y-1/2">
+        <div class="h-full app-bg-lavender w-full rounded-3xl"></div>
+      </div>
+  
+      <!-- Rechter Balken -->
+      <div class="absolute effect top-1/2 right-2 h-1/5 w-3 app-bg-orange rounded-3xl -translate-y-1/2">
+        <div class="h-full app-bg-orange w-full rounded-3xl"></div>
+      </div>
+  
+      <!-- Ball -->
+      <div class="absolute top-1/2 left-1/2 h-7 w-7 effect rounded-full app-bg-teal -translate-x-1/2 -translate-y-1/2">
+        <div class="h-full app-bg-teal w-full rounded-3xl"></div>
+      </div>
+    </div>
+  </div>
+  <div class="w-full max-w-xl mx-auto mt-8">
+    <!-- Toggle Button -->
+    <button id="chat-toggle"
+            class="w-full flex items-center justify-between effect-button px-4 py-3 rounded-t-xl transition">
+      <div>
+        <span class="app-color-gray text-lg text-color-blue-1 font-bold">Open Chat </span>
+                <i id="chat-chevron" class="fa-solid fa-chevron-down app-color-blue-1"></i>
+      </div>
+              <i class="fa-solid fa-comment app-color-blue-1"></i>
+    </button>
+
+    <!-- Chat Body -->
+    <div id="chat-body"
+         class="origin-top app-container scale-y-0 opacity-0 transform transition-all duration-300 ease-in-out overflow-hidden rounded-xl">
+      <div id="chat-messages" class="h-40 overflow-y-auto p-3 effect-inner rounded-3xl space-y-2"></div>
+      <div class="flex app-color-gray rounded-3xl effect-inner py-3 px-4 items-center font-bold text-lg text-color-blue-1">
+        <input id="chat-input" type="text" placeholder="Enter..."
+               class="flex-1 px-3 mt-6" />
+        <button id="chat-send"
+                class="effect-button py-2 px-4 rounded-3xl app-color-gray text-lg font-bold text-color-blue-1">
+          Senden
+        </button>
+      </div>
+    </div>
+  </div>
+  </template>
+    <!-- GamemodesLayout -->
+<template id="gamemodes-template">
+  <div class="flex items-center justify-center">
+  <div class="flex items-center justify-center min-h-screen">
+    <div class="card app-container w-[90vw] max-w-3xl py-10 px-8">
+      <a href="#gamesettings">
+      <div class="text-2xl effect-button text-color-red rounded-3xl py-4 px-6 mb-6 text-center font-bold">
+        Solo Game
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-bolt"></i>
+        <i class="fa-solid fa-desktop"></i>
+      </div>
+      </a>
+      <div class="text-2xl effect-button text-color-lavender rounded-3xl py-4 px-6 mb-6 text-center font-bold">
+        Quick Play
+        <i class="fa-solid fa-stopwatch"></i>
+      </div>
+      <div class="text-2xl effect-button text-color-green rounded-3xl py-4 px-6 mb-6 text-center font-bold">
+        Custom Game
+        <i class="fa-solid fa-users-gear"></i>
+      </div>
+      <div class="text-2xl effect-button text-color-orange rounded-3xl py-4 px-6 mb-2 text-center font-bold">
+        Tournament
+        <i class="fa-solid fa-crown"></i>
+      </div>
+    </div>
+  </template>
+    <!-- OverviewLayout -->
+<template id="overview-template">
+    <div class="flex items-center justify-center">
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="card app-container w-[90vw] max-w-3xl py-10 px-8">
+          <a href="#profil">
+          <div class="text-2xl effect-button text-color-red rounded-3xl py-4 px-6 mb-6 text-center font-bold">
+            <i class="fa-solid fa-user"></i>
+            Profile
+          </div>
+          </a>
+          <a href="#gamemode">
+          <div class="text-2xl effect-button text-color-lavender rounded-3xl py-4 px-6 mb-6 text-center font-bold">
+            <i class="fa-solid fa-gamepad"></i>
+            Play
+          </div>
+          </a>
+          <div class="text-2xl effect-button text-color-orange rounded-3xl py-4 px-6 mb-2 text-center font-bold">
+            <i class="fa-solid fa-chart-simple"></i>
+            Stats
+          </div>
+        </div>
+      </div>
+    </div>
+    </template>
+     <!-- ProfilLayout -->
+<template id="profil-template">
+  <div class ="flex items-center justify-center h-screen">
+    <div class="card flex-center flex-col app-container items-center">
+      <div class="effect title rounded-3xl py-4 px-4 mb-10 w-64 flex items-center justify-center text-4xl">
+        <strong> Profile </strong>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Username </strong>
+        <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Avatar </strong>
+        <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Email-Adresse </strong>
+        <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Password </strong>
+        <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Language </strong>
+        <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
+      </div>
+    </div>
+  </div>
+</template>
+    <!-- GamesettingsLayout -->
+<template id="gamesettings-template">
+  <div class ="flex items-center justify-center h-screen">
+    <div class="card flex-center flex-col app-container items-center">
+      <div class="effect title rounded-3xl py-4 px-4 mb-10 w-64 flex items-center justify-center text-4xl">
+        <strong> Gamesettings </strong>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Time </strong>
+        <div class="flex items-center ml-auto justify-end gap-4">
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="plus" data-target="time-value"></i>
+          <strong id="time-value" class="value"> 60 </strong>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus" data-target="time-value"></i>
+        </div>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Best of 3 </strong>
+        <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Paddle size </strong>
+        <div class="flex items-center ml-auto justify-end gap-4">
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+          <strong> 5 </strong>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+        </div>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Ball size </strong>
+        <div class="flex items-center ml-auto justify-end gap-4">
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+          <strong> 5 </strong>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+        </div>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> Ball speed </strong>
+        <div class="flex items-center ml-auto justify-end gap-4">
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+          <strong> 8 </strong>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+        </div>
+      </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
+        <strong> AI difficulty </strong>
+        <div class="flex items-center ml-auto justify-end gap-4">
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+          <strong> 5 </strong>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+  </body>
 </html>

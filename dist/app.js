@@ -5,16 +5,9 @@ import { initDarkmode } from "./views/darkmode.js";
 import { renderLogin } from "./views/login.js";
 import { renderGamemodes } from "./views/gamemodes.js";
 import { renderOverview } from "./views/overview.js";
-function mount(content) {
-    const app = document.getElementById('app');
-    app.innerHTML = ''; // alten Inhalt leeren
-    if (typeof content === 'string') {
-        app.innerHTML = content; // klassische String‑Variante
-    }
-    else {
-        app.appendChild(content); // Template / DOM‑Node
-    }
-}
+import { renderProfil } from "./views/profil.js";
+import { renderGamesettings } from "./views/gamesettings.js";
+import { initSettingControls } from "./views/gamesettings.js";
 function router() {
     const hash = window.location.hash || "#login";
     const app = document.getElementById("app");
@@ -34,6 +27,13 @@ function router() {
             break;
         case "#gamemode":
             renderGamemodes();
+            break;
+        case "#profil":
+            renderProfil();
+            break;
+        case "#gamesettings":
+            renderGamesettings();
+            initSettingControls();
             break;
         default:
             app.innerHTML = "<p>Seite nicht gefunden.</p>";
