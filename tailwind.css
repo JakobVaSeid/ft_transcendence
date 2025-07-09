@@ -199,6 +199,10 @@ input[type=checkbox]:checked~.switch-bg {
 }
 
 .app-color-teal{
+    color: #3bbec5;
+}
+
+.dark .app-color-teal{
     color: #44DBE4;
 }
 
@@ -211,10 +215,18 @@ input[type=checkbox]:checked~.switch-bg {
 }
 
 .text-color-green {
+    color: #4fac8b;
+}
+
+.dark .text-color-green {
     color: #68DEB4;
 }
 
 .text-color-teal {
+    color: #3bbec5;
+}
+
+.dark .text-color-teal {
     color: #44DBE4;
 }
 
@@ -251,6 +263,10 @@ input[type=checkbox]:checked~.switch-bg {
 }
 
 .app-bg-teal {
+    background: #3bbec5;
+}
+
+.dark .app-bg-teal {
     background: #44DBE4;
 }
 
@@ -275,9 +291,14 @@ input[type=checkbox]:checked~.switch-bg {
 }
 
 @layer components {
-    .card {
-        @apply m-10 rounded-lg bg-white px-6 py-8 shadow-xl ring-1 ring-slate-900/5 dark:bg-black
-    }
+  .card {
+    @apply m-10 rounded-lg px-6 py-8 bg-white
+           shadow-xl ring-1 ring-slate-900/5;
+
+    @apply dark:bg-slate-800
+           dark:ring-white/10
+           dark:shadow-[0_8px_16px_0_rgba(0,0,0,0.4)];
+  }
 }
 
 @utility flex-center {

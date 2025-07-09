@@ -1,5 +1,14 @@
 export function renderLogin() {
-    return `
+    const container = document.getElementById("app");
+    const template = document.getElementById("login-template");
+    if (container && template) {
+        const clone = template.content.cloneNode(true);
+        container.innerHTML = "";
+        container.appendChild(clone);
+    }
+}
+/* export function renderLogin(): string {
+  return `
         <body class="flex items-center justify-center">
   <div class ="flex items-center justify-center h-screen">
     <div class="card flex-center flex-col app-container items-center">
@@ -39,4 +48,4 @@ export function renderLogin() {
   </div>
 </body>
   `;
-}
+} */ 

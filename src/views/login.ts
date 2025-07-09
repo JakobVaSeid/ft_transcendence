@@ -1,4 +1,16 @@
-export function renderLogin(): string {
+export function renderLogin() {
+  const container = document.getElementById("app");
+  const template = document.getElementById("login-template") as HTMLTemplateElement;
+
+  if (container && template) {
+    const clone = template.content.cloneNode(true);
+    container.innerHTML = "";
+    container.appendChild(clone);
+  }
+}
+
+
+/* export function renderLogin(): string {
   return `
         <body class="flex items-center justify-center">
   <div class ="flex items-center justify-center h-screen">
@@ -39,4 +51,4 @@ export function renderLogin(): string {
   </div>
 </body>
   `;
-}
+} */
