@@ -7,16 +7,11 @@ export function renderGamesettings() {
         container.appendChild(clone);
     }
 }
-/**
- * Registriert einen globalen Click-Listener
- * und reagiert nur auf Elemente, die data-action besitzen.
- */
 export function initSettingControls() {
-    // ⚡  Delegiertes Event-Handling – nur **ein** Listener für alles
+    const roomModes = ["public", "private"];
     document.addEventListener("click", (ev) => {
-        var _a;
+        var _a, _b;
         const target = ev.target;
-        // Wir reagieren nur auf Icons mit data-action
         if (!target.dataset.action)
             return;
         const action = target.dataset.action;
@@ -26,12 +21,29 @@ export function initSettingControls() {
         const valueElem = document.getElementById(valueId);
         if (!valueElem)
             return;
-        const current = Number.parseInt((_a = valueElem.textContent) !== null && _a !== void 0 ? _a : "0", 10);
-        let next = current;
-        if (action === "plus")
-            next = Math.min(600, current + 10);
-        if (action === "minus")
-            next = Math.max(30, current - 10);
-        valueElem.textContent = String(next);
+        if (action === "room-type") {
+            const current = (_a = valueElem.textContent) === null || _a === void 0 ? void 0 : _a.trim().toLowerCase();
+            const index = roomModes.indexOf(current !== null && current !== void 0 ? current : "");
+            const next = roomModes[(index + 1) % roomModes.length];
+            valueElem.textContent = next;
+            return;
+        }
+        else {
+            const current = Number.parseInt((_b = valueElem.textContent) !== null && _b !== void 0 ? _b : "0", 10);
+            let next = current;
+            if (action === "plus-ten")
+                next = Math.min(180, current + 10);
+            if (action === "minus-ten")
+                next = Math.max(30, current - 10);
+            if (action === "plus-one")
+                next = Math.min(10, current + 1);
+            if (action === "minus-one")
+                next = Math.max(1, current - 1);
+            if (action === "plus-two")
+                next = Math.min(9, current + 2);
+            if (action === "minus-two")
+                next = Math.max(1, current - 2);
+            valueElem.textContent = String(next);
+        }
     });
 }

@@ -97,7 +97,7 @@
       <div class="flex justify-center">
           <div class="flex w-full items-center mb-2 items-center justify-between max-w-[800px]">
               <div class="text-lg effect text-color-lavender rounded-3xl py-2 px-4"><strong> Norbert: </strong><span id="player1-score"><strong>3</strong></span></div>
-              <div class="text-lg effect text-color-teal rounded-3xl py-2 px-4"><strong> Ball-speed: </strong><span id="ball-speed"><strong> x0 </strong></span></div>
+              <div class="text-lg effect text-color-teal rounded-3xl py-2 px-4"><strong> Ball-speed: </strong><span id="ball-speed"><strong> 0 </strong></span></div>
               <div class="text-lg text-color-orange effect rounded-3xl py-2 px-4"><strong> Herbert: </strong> <span id="player2-score"><strong>5</strong></span></div>
           </div>
       </div>
@@ -161,10 +161,12 @@
         <i class="fa-solid fa-desktop"></i>
       </div>
       </a>
+      <a href="#pong">
       <div class="text-2xl effect-button text-color-lavender rounded-3xl py-4 px-6 mb-6 text-center font-bold">
         Quick Play
         <i class="fa-solid fa-stopwatch"></i>
       </div>
+      </a>
       <div class="text-2xl effect-button text-color-green rounded-3xl py-4 px-6 mb-6 text-center font-bold">
         Custom Game
         <i class="fa-solid fa-users-gear"></i>
@@ -204,7 +206,8 @@
 <template id="profil-template">
   <div class ="flex items-center justify-center h-screen">
     <div class="card flex-center flex-col app-container items-center">
-      <div class="effect title rounded-3xl py-4 px-4 mb-10 w-64 flex items-center justify-center text-4xl">
+      <div class="effect text-color-red rounded-3xl py-4 px-4 mb-10 w-64 flex items-center justify-center text-4xl">
+        <i class="fa-solid fa-user mr-4"></i>
         <strong> Profile </strong>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
@@ -237,50 +240,64 @@
       <div class="effect title rounded-3xl py-4 px-4 mb-10 w-64 flex items-center justify-center text-4xl">
         <strong> Gamesettings </strong>
       </div>
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center justify-between">
+          <i class="fa-solid fa-chevron-left fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="room-type" data-target="room-type-value"></i>
+          <strong id="room-type-value"> private </strong>
+          <i class="fa-solid fa-chevron-right fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="room-type" data-target="room-type-value"></i>
+      </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
         <strong> Time </strong>
         <div class="flex items-center ml-auto justify-end gap-4">
-          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="plus" data-target="time-value"></i>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-ten" data-target="time-value"></i>
           <strong id="time-value" class="value"> 60 </strong>
-          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus" data-target="time-value"></i>
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="plus-ten" data-target="time-value"></i>
         </div>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-        <strong> Best of 3 </strong>
-        <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
+        <strong> Best of </strong>
+        <div class="flex items-center ml-auto justify-end gap-4">
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-two" data-target="best-of-value"></i>
+          <strong id="best-of-value" class="value"> 3 </strong>
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="plus-two" data-target="best-of-value"></i>
+        </div>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
         <strong> Paddle size </strong>
         <div class="flex items-center ml-auto justify-end gap-4">
-          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
-          <strong> 5 </strong>
-          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-one" data-target="paddle-value"></i>
+          <strong id="paddle-value"> 5 </strong>
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="plus-one" data-target="paddle-value"></i>
         </div>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
         <strong> Ball size </strong>
         <div class="flex items-center ml-auto justify-end gap-4">
-          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
-          <strong> 5 </strong>
-          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-one" data-target="ball-size-value"></i>
+          <strong id="ball-size-value"> 5 </strong>
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="plus-one" data-target="ball-size-value"></i>
         </div>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
         <strong> Ball speed </strong>
         <div class="flex items-center ml-auto justify-end gap-4">
-          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
-          <strong> 8 </strong>
-          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-one" data-target="ball-speed-value"></i>
+          <strong id="ball-speed-value"> 8 </strong>
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="plus-one" data-target="ball-speed-value"></i>
         </div>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
         <strong> AI difficulty </strong>
         <div class="flex items-center ml-auto justify-end gap-4">
-          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
-          <strong> 5 </strong>
-          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white"></i>
+          <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-one" data-target="difficulty-value"></i>
+          <strong id="difficulty-value"> 5 </strong>
+          <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="plus-one" data-target="difficulty-value"></i>
         </div>
       </div>
+      <a href="#pong">
+        <div class="effect-button text-color-red rounded-3xl py-4 px-4 mt-10 w-64 flex items-center justify-center text-4xl">
+          <strong> Play </strong>
+        </div>
+      </a>
     </div>
   </div>
 </template>
