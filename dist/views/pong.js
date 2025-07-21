@@ -5,51 +5,30 @@ export function renderPong() {
         const clone = template.content.cloneNode(true);
         container.innerHTML = "";
         container.appendChild(clone);
-    }
-}
-export function initChat() {
-    const toggleBtn = document.getElementById('chat-toggle');
-    const chatBody = document.getElementById('chat-body');
-    const chevron = document.getElementById('chat-chevron');
-    const chatMessages = document.getElementById('chat-messages');
-    const chatInput = document.getElementById('chat-input');
-    const chatSend = document.getElementById('chat-send');
-    if (!toggleBtn || !chatBody || !chevron || !chatMessages || !chatInput || !chatSend) {
-        return;
-    }
-    let isOpen = false;
-    const messages = [];
-    toggleBtn.addEventListener('click', () => {
-        isOpen = !isOpen;
-        chatBody.classList.toggle('scale-y-0');
-        chatBody.classList.toggle('opacity-0');
-        chevron.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-    });
-    function sendMessage() {
-        if (!chatInput)
-            return;
-        const msg = chatInput.value.trim();
-        if (msg) {
-            messages.push(msg);
-            chatInput.value = '';
-            renderMessages();
+        // WICHTIG: Zugriff jetzt erst möglich
+        const countdownOverlay = document.getElementById("countdownOverlay");
+        const fieldContainer = document.querySelector(".effect-inner");
+        const countdownValues = ["3", "2", "1", "GO", " "];
+        let countdownIndex = 0;
+        function showCountdown() {
+            countdownOverlay.textContent = countdownValues[countdownIndex];
+            if (countdownIndex < countdownValues.length - 1) {
+                countdownIndex++;
+                setTimeout(showCountdown, 1000);
+            }
+            else {
+                startGameTransition();
+            }
         }
+        function startGameTransition() {
+            countdownOverlay.classList.add("opacity-0");
+            fieldContainer.classList.add("scale-105", "transition-transform", "duration-700", "ease-in-out");
+            setTimeout(() => startGame(), 700);
+        }
+        function startGame() {
+            console.log("🎮 Spiel startet!");
+        }
+        // Starte Countdown
+        showCountdown();
     }
-    function renderMessages() {
-        if (!chatMessages)
-            return;
-        chatMessages.innerHTML = '';
-        messages.forEach(msg => {
-            const p = document.createElement('p');
-            p.className = 'app-bg-teal effect text-black px-3 py-1 rounded-3xl shadow';
-            p.textContent = msg;
-            chatMessages.appendChild(p);
-        });
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-    chatSend.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter')
-            sendMessage();
-    });
 }

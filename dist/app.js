@@ -8,6 +8,8 @@ import { renderOverview } from "./views/overview.js";
 import { renderProfil } from "./views/profil.js";
 import { renderGamesettings } from "./views/gamesettings.js";
 import { initSettingControls } from "./views/gamesettings.js";
+import { setLanguage } from "./views/language.js";
+let currentLanguage = localStorage.getItem("lang") || "en";
 function router() {
     const hash = window.location.hash || "#login";
     const app = document.getElementById("app");
@@ -20,10 +22,10 @@ function router() {
             break;
         case "#overview":
             renderOverview();
+            setLanguage(currentLanguage);
             break;
         case "#pong":
             renderPong();
-            initChat();
             break;
         case "#gamemode":
             renderGamemodes();
@@ -34,6 +36,7 @@ function router() {
         case "#gamesettings":
             renderGamesettings();
             initSettingControls();
+            initChat();
             break;
         default:
             app.innerHTML = "<p>Seite nicht gefunden.</p>";

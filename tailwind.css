@@ -21,6 +21,13 @@ body {
              -5px -5px 13px #ffffff;
 }
 
+.effect-trans {
+  background: rgba(224, 228, 231, 0.6); /* 60% Deckkraft */
+  box-shadow: 5px 5px 13px #b8c7dd,
+              -5px -5px 13px #ffffff;
+  backdrop-filter: blur(8px); /* leichter Blur-Effekt */
+}
+
 .effect-button {
     background: #E0E4E7;
     box-shadow:  5px 5px 13px #b8c7dd,
@@ -41,6 +48,13 @@ body {
   box-shadow:
     5px 5px 13px #0f172a, 
    -5px -5px 13px #334155;   
+}
+
+.dark .effect-trans {
+  background: rgba(30, 41, 59, 0.6); /* Dark mode: #1e293b mit 60% Deckkraft */
+  box-shadow: 5px 5px 13px #0f172a,
+             -5px -5px 13px #334155;
+  backdrop-filter: blur(8px);
 }
 
 .dark .effect-button {
