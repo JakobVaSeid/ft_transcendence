@@ -79,6 +79,28 @@
           </label>
         </form>
         <button type="submit" class="btn-submi effect-button"><strong class="text-color-red" id="login-button">Login</strong></button>
+        <a href="/auth/google" style="text-decoration: none;" class = "flex flex-center">
+          <div style="
+              display: flex;
+              align-items: center;
+              background-color: #202124;
+              color: white;
+              padding: 10px 16px;
+              border-radius: 8px;
+              font-family: Roboto, sans-serif;
+              font-size: 14px;
+              font-weight: 500;
+              width: fit-content;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+              transition: background-color 0.3s ease;
+            "
+            onmouseover="this.style.backgroundColor='#3c4043';"
+            onmouseout="this.style.backgroundColor='#202124';"
+          >
+            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo" style="height: 18px; margin-right: 12px;" class=flex>
+            Mit Google anmelden
+          </div>
+        </a>
       </form>
       <p class="text-sm text-gray-500 mt-4" id="no-account">Don't have an account? <a href="#" class="text-blue-500" id="sign-up">Sign up</a></p>
     </div>
@@ -153,10 +175,12 @@
         <i class="fa-solid fa-users-gear"></i>
       </div>
       </a>
+      <a href="#gamesettings">
       <div class="text-2xl effect-button text-color-orange rounded-3xl py-4 px-6 mb-2 text-center font-bold" id="tournament">
         Tournament
         <i class="fa-solid fa-crown"></i>
       </div>
+      </a>
     </div>
   </template>
     <!-- OverviewLayout -->
