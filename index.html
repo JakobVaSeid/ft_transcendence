@@ -31,11 +31,11 @@
         <i class="fa-solid fa-user app-color-gray"></i>
       </div>
     </a>
-  <button class="effect-button text-white" id="btn-en">English</button>
-  <button class="effect-button text-white" id="btn-de">Deutsch</button>
-  <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center">
-    <i class="fa-solid fa-gear app-color-gray"></i>
-  </div>
+      <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center">
+        <i class="fa-solid fa-gear app-color-gray"></i>
+      </div>
+  <button class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-teal" id="btn-en"><strong>ENG</strong></button>
+  <button class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-teal" id="btn-de"><strong>DE</strong></button>
     <i id="icon-sun" class="fa-solid fa-sun text-yellow-400 dark:text-gray-600"></i>
     <label class="switch relative">
       <input type="checkbox" id="dark-toggle" class="sr-only" />
@@ -157,7 +157,7 @@
     <div class="card app-container w-[90vw] max-w-3xl py-10 px-8">
       <a href="#gamesettings">
       <div class="text-2xl effect-button text-color-red rounded-3xl py-4 px-6 mb-6 text-center font-bold" id="solo-game">
-        Solo Game
+        <span data-translate="sologame">Solo Game</span>
         <i class="fa-solid fa-user"></i>
         <i class="fa-solid fa-bolt"></i>
         <i class="fa-solid fa-desktop"></i>
@@ -165,19 +165,19 @@
       </a>
       <a href="#pong">
       <div class="text-2xl effect-button text-color-lavender rounded-3xl py-4 px-6 mb-6 text-center font-bold" id="quick-play">
-        Quick Play
+        <span data-translate="quickplay">Quick Play</span>
         <i class="fa-solid fa-stopwatch"></i>
       </div>
       </a>
       <a href="#gamesettings">
       <div class="text-2xl effect-button text-color-green rounded-3xl py-4 px-6 mb-6 text-center font-bold" id="custom-game">
-        Custom Game
+        <span data-translate="customgame">Custom Game</span>
         <i class="fa-solid fa-users-gear"></i>
       </div>
       </a>
       <a href="#gamesettings">
       <div class="text-2xl effect-button text-color-orange rounded-3xl py-4 px-6 mb-2 text-center font-bold" id="tournament">
-        Tournament
+        <span data-translate="tournament">Tournament</span>
         <i class="fa-solid fa-crown"></i>
       </div>
       </a>
@@ -191,18 +191,18 @@
           <a href="#profil">
           <div class="text-2xl effect-button text-color-red rounded-3xl py-4 px-6 mb-6 text-center font-bold">
             <i class="fa-solid fa-user" id="profile"></i>
-            Profile
+            <span data-translate="profile">Profil</span>
           </div>
           </a>
           <a href="#gamemode">
           <div class="text-2xl effect-button text-color-lavender rounded-3xl py-4 px-6 mb-6 text-center font-bold">
             <i class="fa-solid fa-gamepad" id="play"></i>
-            Play
+            <span data-translate="play">Play</span>
           </div>
           </a>
           <div class="text-2xl effect-button text-color-orange rounded-3xl py-4 px-6 mb-2 text-center font-bold">
             <i class="fa-solid fa-chart-simple" id="stats"></i>
-            Stats
+            <span data-translate="stats">Stats</span>
           </div>
         </div>
       </div>
@@ -214,26 +214,26 @@
     <div class="card flex-center flex-col app-container items-center">
       <div class="effect text-color-red rounded-3xl py-4 px-4 mb-10 w-64 flex items-center justify-center text-4xl">
         <i class="fa-solid fa-user mr-4" ></i>
-        <strong id="profile"> Profile </strong>
+        <strong data-translate="profile"> Profile </strong>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center" >
-        <strong id="username"> Username </strong>
+        <strong id="username" data-translate="username"> Username </strong>
         <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-        <strong id="avatar"> Avatar </strong>
+        <strong id="avatar" data-translate="avatar"> Avatar </strong>
         <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-        <strong id="email-adress"> Email-Adress </strong>
+        <strong id="email-adress" data-translate="email"> Email-Adress </strong>
         <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-        <strong id="password"> Password </strong>
+        <strong id="password" data-translate="password"> Password </strong>
         <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
       </div>
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-        <strong id="language"> Language </strong>
+        <strong id="language" data-translate="language"> Language </strong>
         <i class="fa-solid fa-gears fa-xs text-gray-400 hover:text-black cursor-pointer ml-auto dark:hover:text-white"></i>
       </div>
     </div>
@@ -252,7 +252,7 @@
                class="flex-1 px-3 mt-6" />
         <button id="chat-send"
                 class="effect-button py-2 px-4 rounded-3xl app-color-gray text-lg font-bold text-color-blue-1">
-          Senden
+          <span data-translate="send">Send</span>
         </button>
       </div>
     </div>
@@ -261,15 +261,15 @@
 <!--Settings-->
 <div class="card flex-center flex-col app-container items-center px-18">
   <div class="effect title rounded-3xl py-4 px-4 mb-10 w-64 flex items-center justify-center text-4xl">
-    <strong id="gamesettings"> Gamesettings </strong>
+    <strong data-translate="gamesettings"> Gamesettings </strong>
   </div>
   <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center justify-between">
       <i class="fa-solid fa-chevron-left fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="room-type" data-target="room-type-value"></i>
-      <strong id="room-type-value"> private </strong>
+      <strong id="room-type-value" data-translate="roomType"> private </strong>
       <i class="fa-solid fa-chevron-right fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="room-type" data-target="room-type-value"></i>
   </div>
   <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-    <strong id="time"> Time </strong>
+    <strong id="time" data-translate="time"> Time </strong>
     <div class="flex items-center ml-auto justify-end gap-4">
       <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-ten" data-target="time-value"></i>
       <strong id="time-value" class="value"> 60 </strong>
@@ -277,7 +277,7 @@
     </div>
   </div>
   <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-    <strong id="best-of"> Best of </strong>
+    <strong data-translate="bestOf"> Best of </strong>
     <div class="flex items-center ml-auto justify-end gap-4">
       <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-two" data-target="best-of-value"></i>
       <strong id="best-of-value" class="value"> 3 </strong>
@@ -285,7 +285,7 @@
     </div>
   </div>
   <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-    <strong id="paddle-size"> Paddle size </strong>
+    <strong data-translate="paddleSize"> Paddle size </strong>
     <div class="flex items-center ml-auto justify-end gap-4">
       <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-one" data-target="paddle-value"></i>
       <strong id="paddle-value"> 5 </strong>
@@ -293,7 +293,7 @@
     </div>
   </div>
   <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-    <strong id="ball-size"> Ball size </strong>
+    <strong data-translate="ballSize"> Ball size </strong>
     <div class="flex items-center ml-auto justify-end gap-4">
       <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-one" data-target="ball-size-value"></i>
       <strong id="ball-size-value"> 5 </strong>
@@ -301,7 +301,7 @@
     </div>
   </div>
   <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-    <strong id="ball-speed"> Ball speed </strong>
+    <strong data-translate="ballSpeed"> Ball speed </strong>
     <div class="flex items-center ml-auto justify-end gap-4">
       <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-one" data-target="ball-speed-value"></i>
       <strong id="ball-speed-value"> 8 </strong>
@@ -309,7 +309,7 @@
     </div>
   </div>
   <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
-    <strong id="difficulty"> AI difficulty </strong>
+    <strong data-translate="difficulty"> AI difficulty </strong>
     <div class="flex items-center ml-auto justify-end gap-4">
       <i class="fa-solid fa-minus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="minus-one" data-target="difficulty-value"></i>
       <strong id="difficulty-value"> 5 </strong>
@@ -318,7 +318,7 @@
   </div>
   <a href="#pong">
     <div class="effect-button text-color-red rounded-3xl py-4 px-4 mt-10 w-64 flex items-center justify-center text-4xl">
-      <strong id="play"> Play </strong>
+      <strong data-translate="play"> Play </strong>
     </div>
   </a>
 </div>
@@ -326,7 +326,7 @@
   <div class="card flex-center flex-col app-container items-center">
    <div class="effect text-color-red rounded-3xl py-4 px-4 mb-10 w-64 flex items-center justify-center text-4xl">
         <i class="fa-solid fa-user mr-4"></i>
-        <strong id="player"> Player </strong>
+        <strong data-translate="player"> Player </strong>
       </div>
       <div class="text-lg effect text-color-lavender justify-center rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
         <strong> Norbert </strong>
@@ -337,7 +337,7 @@
 </div>
 <div class="card flex-center flex-col app-container items-center">
       <div class="effect text-color rounded-3xl py-4 px-4 mb-10 w-64 flex items-center justify-center text-4xl ">
-        <strong id="visitors"> Visitors </strong>
+        <strong data-translate="visitors"> Visitors </strong>
         <i class="fa-solid fa-glasses ml-4"></i>
       </div>
        <div class="text-lg effect text-color-lavender justify-center rounded-3xl py-2 px-4 mb-6 w-64 flex items-center">
