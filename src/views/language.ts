@@ -24,7 +24,12 @@ export const translations: Record<Language, Record<string, string>> = {
     ballSpeed: 'Ball Speed',
     difficulty: 'AI Difficulty',
     player: 'Player',
-    visitors: 'Visitors'
+    visitors: 'Visitors',
+    loginTitle: 'Login for amazing Pong',
+    googleLogo: 'Login with google',
+    noAccount: 'Don\'t have an account?',
+    signUp: 'Sign up',
+    loginButton: 'Login',
   },
   de: {
     profile: 'Profil',
@@ -49,15 +54,21 @@ export const translations: Record<Language, Record<string, string>> = {
     ballSpeed: 'Ballgeschwindigkeit',
     difficulty: 'KI Schwierigkeit',
     player: 'Spieler',
-    visitors: 'Besucher'
+    visitors: 'Besucher',
+    loginTitle: 'Login für erstaunliches Pong',
+    googleLogo: 'Login mit Google',
+    noAccount: 'Haben Sie kein Konto?',
+    signUp: 'Registrieren',
+    loginButton: 'Anmelden'
   },
 };
 
-let currentLanguage = (localStorage.getItem("lang") as Language) || "en";
+export function getCurrentLanguage(): Language {
+  return (localStorage.getItem("lang") as Language) || "en";
+}
 
 export function setLanguage(lang: Language): void {
   const elements = document.querySelectorAll<HTMLElement>('[data-translate]');
-
   elements.forEach((el) => {
     const key = el.dataset.translate;
     if (key && translations[lang][key]) {
@@ -65,7 +76,6 @@ export function setLanguage(lang: Language): void {
     }
   });
 
-  // Optional: Sprache im LocalStorage speichern
   localStorage.setItem('lang', lang);
 }
 
@@ -74,16 +84,14 @@ function setupLanguageButtons() {
   const btnDe = document.getElementById("btn-de");
 
   btnEn?.addEventListener("click", () => {
-    currentLanguage = "en";
-    setLanguage(currentLanguage);
+    setLanguage("en");
   });
   btnDe?.addEventListener("click", () => {
-    currentLanguage = "de";
-    setLanguage(currentLanguage);
+    setLanguage("de");
   });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
   setupLanguageButtons();
-  setLanguage(currentLanguage); // initial setzen
+  setLanguage(getCurrentLanguage()); // aus LocalStorage lesen!
 });

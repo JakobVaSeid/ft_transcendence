@@ -10,23 +10,28 @@ import { renderGamesettings } from "./views/gamesettings.js";
 import { initSettingControls } from "./views/gamesettings.js";
 import { setLanguage } from "./views/language.js";
 import { Language } from "./views/language.js";
+import { getCurrentLanguage } from "./views/language.js";
+import { renderRegister } from "./views/register.js";
 
 
-let currentLanguage = (localStorage.getItem("lang") as Language) || "en";
 
 function router() {
   const hash = window.location.hash || "#login";
   const app = document.getElementById("app");
   if (!app) return;
+  let currentLanguage = (localStorage.getItem("lang") as Language) || "en";
   initDarkmode(); // Initialize dark mode functionality
+  setLanguage(getCurrentLanguage());
 
   switch (hash) {
     case "#login":
       renderLogin();
       break;
+    case "#register":
+      renderRegister();
+      break;
     case "#overview":
       renderOverview();
-      setLanguage(currentLanguage);
       break;
     case "#pong":
       renderPong();

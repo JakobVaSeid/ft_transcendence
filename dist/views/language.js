@@ -22,7 +22,12 @@ export const translations = {
         ballSpeed: 'Ball Speed',
         difficulty: 'AI Difficulty',
         player: 'Player',
-        visitors: 'Visitors'
+        visitors: 'Visitors',
+        loginTitle: 'Login for amazing Pong',
+        googleLogo: 'Login with google',
+        noAccount: 'Don\'t have an account?',
+        signUp: 'Sign up',
+        loginButton: 'Login',
     },
     de: {
         profile: 'Profil',
@@ -47,10 +52,17 @@ export const translations = {
         ballSpeed: 'Ballgeschwindigkeit',
         difficulty: 'KI Schwierigkeit',
         player: 'Spieler',
-        visitors: 'Besucher'
+        visitors: 'Besucher',
+        loginTitle: 'Login für erstaunliches Pong',
+        googleLogo: 'Login mit Google',
+        noAccount: 'Haben Sie kein Konto?',
+        signUp: 'Registrieren',
+        loginButton: 'Anmelden'
     },
 };
-let currentLanguage = localStorage.getItem("lang") || "en";
+export function getCurrentLanguage() {
+    return localStorage.getItem("lang") || "en";
+}
 export function setLanguage(lang) {
     const elements = document.querySelectorAll('[data-translate]');
     elements.forEach((el) => {
@@ -59,22 +71,19 @@ export function setLanguage(lang) {
             el.textContent = translations[lang][key];
         }
     });
-    // Optional: Sprache im LocalStorage speichern
     localStorage.setItem('lang', lang);
 }
 function setupLanguageButtons() {
     const btnEn = document.getElementById("btn-en");
     const btnDe = document.getElementById("btn-de");
     btnEn === null || btnEn === void 0 ? void 0 : btnEn.addEventListener("click", () => {
-        currentLanguage = "en";
-        setLanguage(currentLanguage);
+        setLanguage("en");
     });
     btnDe === null || btnDe === void 0 ? void 0 : btnDe.addEventListener("click", () => {
-        currentLanguage = "de";
-        setLanguage(currentLanguage);
+        setLanguage("de");
     });
 }
 window.addEventListener("DOMContentLoaded", () => {
     setupLanguageButtons();
-    setLanguage(currentLanguage); // initial setzen
+    setLanguage(getCurrentLanguage()); // aus LocalStorage lesen!
 });

@@ -34,8 +34,8 @@
       <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center">
         <i class="fa-solid fa-gear app-color-gray"></i>
       </div>
-  <button class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-teal" id="btn-en"><strong>ENG</strong></button>
-  <button class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-teal" id="btn-de"><strong>DE</strong></button>
+  <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-grey" id="btn-en"><strong>ENG</strong></div>
+  <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-grey" id="btn-de"><strong>DE</strong></div>
     <i id="icon-sun" class="fa-solid fa-sun text-yellow-400 dark:text-gray-600"></i>
     <label class="switch relative">
       <input type="checkbox" id="dark-toggle" class="sr-only" />
@@ -50,7 +50,7 @@
   <div class ="flex items-center justify-center h-screen">
     <div class="card flex-center flex-col app-container items-center">
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6">
-        <strong id="login-title"> Login for amazing Pong </strong>
+        <strong data-translate="loginTitle"> Login for amazing Pong </strong>
       </div>
       <form id="login-form" class="flex flex-col gap-4 mt-6">
         <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
@@ -78,7 +78,7 @@
             <span class="text-sm text-color-lavender"><strong id="login-option-2">I want to recive mails for marketing purpose</strong></span>
           </label>
         </form>
-        <button type="submit" class="btn-submi effect-button"><strong class="text-color-red" id="login-button">Login</strong></button>
+        <button type="submit" class="btn-submi effect-button"><strong class="text-color-red" id="login-button" data-translate="loginButton">Login</strong></button>
         <a href="/auth/google" style="text-decoration: none;" class = "flex flex-center">
           <div style="
               display: flex;
@@ -98,11 +98,40 @@
             onmouseout="this.style.backgroundColor='#202124';"
           >
             <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo" style="height: 18px; margin-right: 12px;" class=flex>
-            Mit Google anmelden
+            <span data-translate="googleLogo">Login with google</span>
           </div>
         </a>
       </form>
-      <p class="text-sm text-gray-500 mt-4" id="no-account">Don't have an account? <a href="#" class="text-blue-500" id="sign-up">Sign up</a></p>
+      <p class="text-sm text-gray-500 mt-4" id="no-account"> <span data-translate="noAccount">Don't have an account?</span> <a href="#register" class="text-blue-500" id="sign-up" data-translate="signUp"><span >Sign up</span></a></p>
+    </div>
+  </div>
+</template>
+ <!-- RegisterLayout -->
+<template id="register-template">
+  <div class ="flex items-center justify-center h-screen">
+    <div class="card flex-center flex-col app-container items-center">
+      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6">
+        <strong data-translate="register"> Register</strong>
+      </div>
+      <form id="login-form" class="flex flex-col gap-4 mt-6">
+        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+          <i class="fa-solid fa-envelope app-color-orange"></i>
+          <input type="text" placeholder="Email" class="ml-2 app-color-gray" required>
+        </div>
+        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+          <i class="fa-solid fa-user app-color-pink"></i>
+          <input type="text" placeholder="Username" class="ml-2 app-color-gray" required>
+        </div>
+        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+          <i class="fa-solid fa-lock app-color-blue-1"></i>
+          <input type="password" placeholder="Password" class="ml-2 app-color-gray" required>
+        </div>
+        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+          <i class="fa-solid fa-lock app-color-blue-1"></i>
+          <input type="password" placeholder="Repeat password" class="ml-2 app-color-gray" required>
+        </div>
+        <button type="submit" class="btn-submi effect-button"><strong class="text-color-red" id="create-button" data-translate="create">Create</strong></button>
+      </form>
     </div>
   </div>
 </template>
@@ -117,7 +146,6 @@
       <div class="flex justify-center">
           <div class="flex w-full items-center mb-2 items-center justify-between max-w-[800px]">
               <div class="text-lg effect text-color-lavender rounded-3xl py-2 px-4"><strong> Norbert: </strong><span id="player1-score"><strong>3</strong></span></div>
-              <div class="text-lg effect text-color-teal rounded-3xl py-2 px-4"><strong> Ball-speed: </strong><span id="ball-speed"><strong> 0 </strong></span></div>
               <div class="text-lg text-color-orange effect rounded-3xl py-2 px-4"><strong> Herbert: </strong> <span id="player2-score"><strong>5</strong></span></div>
           </div>
       </div>
