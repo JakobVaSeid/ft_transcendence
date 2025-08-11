@@ -15,11 +15,7 @@
     <nav class="flex items-center effect justify-between p-4 bg-white dark:bg-gray-900 shadow relative">
   <div class="flex gap-4">
     <a href="#login" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Login</strong></a>
-    <a href="#pong" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Pong</strong></a>
-    <a href="#overview" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Overview</strong></a>
-    <a href="#profil" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Profile</strong></a>
     <a href="./style.html" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Style</strong></a>
-    <a href="./test.html" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Test</strong></a>
   </div>
   <div class="flex gap-4">
   
@@ -31,11 +27,13 @@
         <i class="fa-solid fa-user app-color-gray"></i>
       </div>
     </a>
+    <a href="#error">
       <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center">
         <i class="fa-solid fa-gear app-color-gray"></i>
       </div>
-  <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-grey" id="btn-en"><strong>ENG</strong></div>
-  <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-grey" id="btn-de"><strong>DE</strong></div>
+    </a>
+  <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-grey" id="btn-en">🇬🇧</div>
+  <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-grey" id="btn-de">🇩🇪</div>
     <i id="icon-sun" class="fa-solid fa-sun text-yellow-400 dark:text-gray-600"></i>
     <label class="switch relative">
       <input type="checkbox" id="dark-toggle" class="sr-only" />
@@ -107,34 +105,34 @@
   </div>
 </template>
  <!-- RegisterLayout -->
-<template id="register-template">
-  <div class ="flex items-center justify-center h-screen">
-    <div class="card flex-center flex-col app-container items-center">
-      <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6">
-        <strong data-translate="register"> Register</strong>
+  <template id="register-template">
+    <div class ="flex items-center justify-center h-screen">
+      <div class="card flex-center flex-col app-container items-center">
+        <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6">
+          <strong data-translate="register"> Register</strong>
+        </div>
+        <form id="login-form" class="flex flex-col gap-4 mt-6">
+          <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+            <i class="fa-solid fa-envelope app-color-orange"></i>
+            <input type="text" placeholder="Email" class="ml-2 app-color-gray" required>
+          </div>
+          <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+            <i class="fa-solid fa-user app-color-pink"></i>
+            <input type="text" placeholder="Username" class="ml-2 app-color-gray" required>
+          </div>
+          <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+            <i class="fa-solid fa-lock app-color-blue-1"></i>
+            <input type="password" placeholder="Password" class="ml-2 app-color-gray" required>
+          </div>
+          <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
+            <i class="fa-solid fa-lock app-color-blue-1"></i>
+            <input type="password" placeholder="Repeat password" class="ml-2 app-color-gray" required>
+          </div>
+          <button type="submit" class="btn-submi effect-button"><strong class="text-color-red" id="create-button" data-translate="create">Create</strong></button>
+        </form>
       </div>
-      <form id="login-form" class="flex flex-col gap-4 mt-6">
-        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
-          <i class="fa-solid fa-envelope app-color-orange"></i>
-          <input type="text" placeholder="Email" class="ml-2 app-color-gray" required>
-        </div>
-        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
-          <i class="fa-solid fa-user app-color-pink"></i>
-          <input type="text" placeholder="Username" class="ml-2 app-color-gray" required>
-        </div>
-        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
-          <i class="fa-solid fa-lock app-color-blue-1"></i>
-          <input type="password" placeholder="Password" class="ml-2 app-color-gray" required>
-        </div>
-        <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
-          <i class="fa-solid fa-lock app-color-blue-1"></i>
-          <input type="password" placeholder="Repeat password" class="ml-2 app-color-gray" required>
-        </div>
-        <button type="submit" class="btn-submi effect-button"><strong class="text-color-red" id="create-button" data-translate="create">Create</strong></button>
-      </form>
     </div>
-  </div>
-</template>
+  </template>
 <!-- PongLayout -->
 <template id="pong-template">
       <header>
@@ -379,6 +377,17 @@
 </div>
 </div>
 </div>
+  </div>
+</template>
+ <!-- Error Page-->
+<template id="error-template">
+  <div class ="flex items-center justify-center h-screen">
+    <div class="card flex-center flex-col app-container items-center">
+      <div class="text-lg effect text-color-red rounded-3xl py-2 px-4 mb-6">
+        <strong data-translate="error"> Error </strong>
+      </div>
+      <span data-translate="errorMsg"> An error occurred. Please try again later. </span>
+    </div>
   </div>
 </template>
 <main id="app" class="p-4"></main>

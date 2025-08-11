@@ -12,6 +12,7 @@ import { setLanguage } from "./views/language.js";
 import { Language } from "./views/language.js";
 import { getCurrentLanguage } from "./views/language.js";
 import { renderRegister } from "./views/register.js";
+import { renderError } from "./views/error.js";
 
 
 
@@ -24,6 +25,9 @@ function router() {
   setLanguage(getCurrentLanguage());
 
   switch (hash) {
+    case "#error":
+      renderError();
+      break;
     case "#login":
       renderLogin();
       break;

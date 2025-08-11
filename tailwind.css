@@ -244,6 +244,10 @@ input[type=checkbox]:checked~.switch-bg {
     color: #44DBE4;
 }
 
+.app-bg-red {
+    background: #e45c44;
+}
+
 .text-color-red {
     color: #e45c44;
 }

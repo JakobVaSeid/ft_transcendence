@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Countdown Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white flex items-center justify-center h-screen">
+
+  <!-- SPIELFELD -->
+  <div class="relative w-[800px] aspect-[2/1] rounded-3xl border-4 border-white">
+    <!-- Countdown Overlay -->
+    <div id="countdownOverlay"
+         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                text-white text-[8rem] font-bold z-50 pointer-events-none 
+                opacity-100 transition-opacity duration-500 select-none">
+      3
+    </div>
+    <!-- Canvas -->
+    <canvas id="pong" class="w-full h-full bg-gray-800 rounded-3xl"></canvas>
+  </div>
+
+  <!-- Script am Ende -->
+  <script type="module">
+    const countdownOverlay = document.getElementById("countdownOverlay");
+    console.log("Overlay gefunden:", countdownOverlay);
+
+    if (!countdownOverlay) {
+      console.error("❌ countdownOverlay NICHT gefunden!");
+    }
+
+    const countdownValues = ["3", "2", "1", "GO"];
+    let countdownIndex = 0;
+
+    function showCountdown() {
+      countdownOverlay.textContent = countdownValues[countdownIndex];
+      if (countdownIndex < countdownValues.length - 1) {
+        countdownIndex++;
+        setTimeout(showCountdown, 1000);
+      } else {
+        countdownOverlay.classList.add("opacity-0");
+        startGame();
+      }
+    }
+
+    function startGame() {
+      console.log("🎮 Spiel startet!");
+    }
+
+    showCountdown();
+  </script>
+</body>
+</html>
+
+  <div class="w-full max-w-xl mx-auto mt-8">
+    <!-- Toggle Button -->
+    <button id="chat-toggle"
+            class="w-full flex items-center justify-between effect-button px-4 py-3 rounded-t-xl transition">
+      <div>
+        <span class="app-color-gray text-lg text-color-blue-1 font-bold">Open Chat </span>
+                <i id="chat-chevron" class="fa-solid fa-chevron-down app-color-blue-1"></i>
+      </div>
+              <i class="fa-solid fa-comment app-color-blue-1"></i>
+    </button>
+
+    <!-- Chat Body -->
+    <div id="chat-body"
+         class="origin-top app-container scale-y-0 opacity-0 transform transition-all duration-300 ease-in-out overflow-hidden rounded-xl">
+      <div id="chat-messages" class="h-40 overflow-y-auto p-3 effect-inner rounded-3xl space-y-2"></div>
+      <div class="flex app-color-gray rounded-3xl effect-inner py-3 px-4 items-center font-bold text-lg text-color-blue-1">
+        <input id="chat-input" type="text" placeholder="Enter..."
+               class="flex-1 px-3 mt-6" />
+        <button id="chat-send"
+                class="effect-button py-2 px-4 rounded-3xl app-color-gray text-lg font-bold text-color-blue-1">
+          Senden
+        </button>
+      </div>
+    </div>
+  </div>

@@ -11,6 +11,7 @@ import { initSettingControls } from "./views/gamesettings.js";
 import { setLanguage } from "./views/language.js";
 import { getCurrentLanguage } from "./views/language.js";
 import { renderRegister } from "./views/register.js";
+import { renderError } from "./views/error.js";
 function router() {
     const hash = window.location.hash || "#login";
     const app = document.getElementById("app");
@@ -20,6 +21,9 @@ function router() {
     initDarkmode(); // Initialize dark mode functionality
     setLanguage(getCurrentLanguage());
     switch (hash) {
+        case "#error":
+            renderError();
+            break;
         case "#login":
             renderLogin();
             break;

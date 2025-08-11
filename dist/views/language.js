@@ -28,6 +28,8 @@ export const translations = {
         noAccount: 'Don\'t have an account?',
         signUp: 'Sign up',
         loginButton: 'Login',
+        error: 'Error',
+        errorMsg: 'An error occurred. Please try again later.',
     },
     de: {
         profile: 'Profil',
@@ -57,7 +59,9 @@ export const translations = {
         googleLogo: 'Login mit Google',
         noAccount: 'Haben Sie kein Konto?',
         signUp: 'Registrieren',
-        loginButton: 'Anmelden'
+        loginButton: 'Anmelden',
+        error: 'Fehler',
+        errorMsg: 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.',
     },
 };
 export function getCurrentLanguage() {
