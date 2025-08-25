@@ -1,0 +1,11 @@
+{
+  "name": "ft_gateway_test",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "fastify": "^4.29.1",
+    "@fastify/http-proxy": "^7.0.0",
+    "@fastify/websocket": "^7.0.0"
+  }
+}
+

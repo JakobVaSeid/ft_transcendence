@@ -1,11 +1,80 @@
-export function renderLogin() {
-    const container = document.getElementById("app");
-    const template = document.getElementById("login-template");
-    if (container && template) {
-        const clone = template.content.cloneNode(true);
-        container.innerHTML = "";
-        container.appendChild(clone);
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+//function to handle error banner
+function showErrorBanner(message) {
+    const eBanner = document.getElementById("error-banner");
+    if (eBanner) {
+        eBanner.textContent = message;
+        eBanner.classList.remove("hidden");
+        setTimeout(() => {
+            eBanner.classList.remove("animate-fade-in");
+            eBanner.classList.add("animate-fade-out");
+            setTimeout(() => eBanner.remove(), 500);
+        }, 3000);
     }
+}
+export function renderLogin() {
+    return __awaiter(this, arguments, void 0, function* (showBanner = false, onSuccess) {
+        const container = document.getElementById("app");
+        const template = document.getElementById("login-template");
+        if (container && template) {
+            const clone = template.content.cloneNode(true);
+            container.innerHTML = "";
+            container.appendChild(clone);
+            const loginData = document.getElementById("login-form");
+            if (loginData) {
+                loginData.addEventListener("submit", (e) => __awaiter(this, void 0, void 0, function* () {
+                    e.preventDefault(); // verhindern, dass die Seite neu lädt
+                    const emailInput = document.getElementById("email");
+                    const passwordInput = document.getElementById("password");
+                    if (!emailInput || !passwordInput)
+                        return;
+                    const email = emailInput.value;
+                    const password = passwordInput.value;
+                    console.log("Eingegeben:", email, password);
+                    const useMock = false; // anpassen fürs testen
+                    try {
+                        const response = useMock
+                            ? { ok: true, json: () => __awaiter(this, void 0, void 0, function* () { return ({ token: "fake-token", email }); }) }
+                            : yield fetch("https://localhost:8080/api/auth/register", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ email, password }),
+                            });
+                        const data = yield response.json();
+                        if (response.ok) {
+                            console.log("Login success:", data);
+                            if (onSuccess)
+                                onSuccess();
+                        }
+                        console.log("Response:", data);
+                    }
+                    catch (err) {
+                        console.error("Network error", err);
+                        showErrorBanner("An error occurred. Please try again.");
+                    }
+                }));
+            }
+            if (showBanner) {
+                const banner = document.getElementById("logout-banner");
+                if (banner) {
+                    banner.classList.remove("hidden");
+                    setTimeout(() => {
+                        banner.classList.remove("animate-fade-in");
+                        banner.classList.add("animate-fade-out");
+                        setTimeout(() => banner.remove(), 500);
+                    }, 3000);
+                }
+            }
+        }
+    });
 }
 /* export function renderLogin(): string {
   return `

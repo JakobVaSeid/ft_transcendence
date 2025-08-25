@@ -1,13 +1,23 @@
 {
   "dependencies": {
     "@tailwindcss/cli": "^4.1.7",
-    "nano-jsx": "^0.1.0"
+    "fastify": "^5.4.0",
+    "fastify-websocket": "^4.2.2",
+    "nano-jsx": "^0.1.0",
+    "tsc": "^2.0.4"
   },
   "devDependencies": {
     "tailwindcss": "^4.1.10",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "scripts": {
     "dev": "tailwindcss -i ./tailwind.css -o ./tailwind-built.css --watch"
-  }
+  },
+  "name": "ft_transcendence",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

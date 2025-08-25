@@ -25,7 +25,14 @@ function router() {
             renderError();
             break;
         case "#login":
-            renderLogin();
+            renderLogin(false, () => {
+                window.location.hash = "#overview";
+            });
+            break;
+        case "#logout":
+            renderLogin(true, () => {
+                window.location.hash = "#overview";
+            });
             break;
         case "#register":
             renderRegister();

@@ -212,6 +212,11 @@ input[type=checkbox]:checked~.switch-bg {
     color: #e4b144;
 }
 
+.app-color-red {
+    color: #e45c44;
+}
+
+
 .app-color-teal{
     color: #3bbec5;
 }
@@ -321,6 +326,25 @@ input[type=checkbox]:checked~.switch-bg {
 
 @utility flex-center {
     @apply flex justify-center items-center;
+}
+
+@layer utilities {
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-out {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .animate-fade-out {
+    animation: fade-out 0.5s ease-in forwards;
+  }
 }
 
 /* @utility container {

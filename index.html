@@ -15,6 +15,7 @@
     <nav class="flex items-center effect justify-between p-4 bg-white dark:bg-gray-900 shadow relative">
   <div class="flex gap-4">
     <a href="#login" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Login</strong></a>
+    <a href="#overview" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Overview</strong></a>
     <a href="./style.html" class="text-lg effect-button text-color-teal rounded-3xl py-2 px-4"><strong>Style</strong></a>
   </div>
   <div class="flex gap-4">
@@ -32,6 +33,11 @@
         <i class="fa-solid fa-gear app-color-gray"></i>
       </div>
     </a>
+    <a href="#logout">
+      <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center">
+        <i class="fa-solid fa-right-from-bracket app-color-red"></i>
+      </div>
+    </a>
   <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-grey" id="btn-en">🇬🇧</div>
   <div class="w-14 h-12 flex effect-button rounded-xl justify-center items-center text-color-grey" id="btn-de">🇩🇪</div>
     <i id="icon-sun" class="fa-solid fa-sun text-yellow-400 dark:text-gray-600"></i>
@@ -45,6 +51,13 @@
 </nav>
     <!-- LoginLayout -->
 <template id="login-template">
+  <div id="logout-banner" 
+       class="hidden bg-red-500 text-white px-6 py-3 rounded-2xl shadow-lg mb-6 animate-fade-in">
+    <span class="font-semibold">Error: Error occurred</span>
+  </div>
+  <div id="error-banner" class="hidden bg-green-500 text-white px-6 py-3 rounded-2xl shadow-lg mb-6 animate-fade-in">
+      <span class="font-semibold">You have been logged out.</span>
+  </div>
   <div class ="flex items-center justify-center h-screen">
     <div class="card flex-center flex-col app-container items-center">
       <div class="text-lg effect text-color-green rounded-3xl py-2 px-4 mb-6">
@@ -53,11 +66,11 @@
       <form id="login-form" class="flex flex-col gap-4 mt-6">
         <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
           <i class="fa-solid fa-user app-color-pink"></i>
-          <input type="text" placeholder="Username" class="ml-2 app-color-gray" required>
+          <input id="email" type="text" placeholder="email-adress" class="ml-2 app-color-gray" required>
         </div>
         <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
           <i class="fa-solid fa-lock app-color-blue-1"></i>
-          <input type="password" placeholder="Password" class="ml-2 app-color-gray" required>
+          <input id="password" type="password" placeholder="Password" class="ml-2 app-color-gray" required>
         </div>
         <form class="flex flex-col h-28 py-4 justify-between">
           <!-- Option 1 -->
@@ -76,7 +89,7 @@
             <span class="text-sm text-color-lavender"><strong id="login-option-2">I want to recive mails for marketing purpose</strong></span>
           </label>
         </form>
-        <button type="submit" class="btn-submi effect-button"><strong class="text-color-red" id="login-button" data-translate="loginButton">Login</strong></button>
+        <button type="submit" class="btn-submit effect-button"><strong class="text-color-red" id="login-button" data-translate="loginButton">Login</strong></button>
         <a href="/auth/google" style="text-decoration: none;" class = "flex flex-center">
           <div style="
               display: flex;
@@ -114,19 +127,19 @@
         <form id="login-form" class="flex flex-col gap-4 mt-6">
           <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
             <i class="fa-solid fa-envelope app-color-orange"></i>
-            <input type="text" placeholder="Email" class="ml-2 app-color-gray" required>
+            <input id="email" type="text" placeholder="Email" class="ml-2 app-color-gray" required>
           </div>
           <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
             <i class="fa-solid fa-user app-color-pink"></i>
-            <input type="text" placeholder="Username" class="ml-2 app-color-gray" required>
+            <input id="username" type="text" placeholder="Username" class="ml-2 app-color-gray" required>
           </div>
           <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
             <i class="fa-solid fa-lock app-color-blue-1"></i>
-            <input type="password" placeholder="Password" class="ml-2 app-color-gray" required>
+            <input id="password" type="password" placeholder="Password" class="ml-2 app-color-gray" required>
           </div>
           <div class="flex flex-row w-72 app-color-gray rounded-3xl effect-inner py-3 px-6 items-center">
             <i class="fa-solid fa-lock app-color-blue-1"></i>
-            <input type="password" placeholder="Repeat password" class="ml-2 app-color-gray" required>
+            <input id="repeatpassword" type="password" placeholder="Repeat password" class="ml-2 app-color-gray" required>
           </div>
           <button type="submit" class="btn-submi effect-button"><strong class="text-color-red" id="create-button" data-translate="create">Create</strong></button>
         </form>
@@ -342,7 +355,7 @@
       <i class="fa-solid fa-plus fa-xs text-gray-400 hover:text-black cursor-pointer dark:hover:text-white" data-action="plus-one" data-target="difficulty-value"></i>
     </div>
   </div>
-  <a href="#pong">
+  <a href="#pong" id="play-btn">
     <div class="effect-button text-color-red rounded-3xl py-4 px-4 mt-10 w-64 flex items-center justify-center text-4xl">
       <strong data-translate="play"> Play </strong>
     </div>

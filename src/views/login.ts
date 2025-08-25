@@ -1,13 +1,81 @@
-export function renderLogin() {
+//function to handle error banner
+function showErrorBanner(message: string) {
+  const eBanner = document.getElementById("error-banner");
+  if (eBanner) {
+    eBanner.textContent = message;
+    eBanner.classList.remove("hidden");
+    setTimeout(() => {
+      eBanner.classList.remove("animate-fade-in");
+      eBanner.classList.add("animate-fade-out");
+      setTimeout(() => eBanner.remove(), 500);
+    }, 3000);
+  }
+}
+
+
+export async function renderLogin(showBanner = false, onSuccess?: () => void) {
   const container = document.getElementById("app");
   const template = document.getElementById("login-template") as HTMLTemplateElement;
 
   if (container && template) {
-    const clone = template.content.cloneNode(true);
+    const clone = template.content.cloneNode(true) as DocumentFragment;
     container.innerHTML = "";
     container.appendChild(clone);
+
+    const loginData = document.getElementById("login-form") as HTMLFormElement | null;
+    if(loginData) {
+      loginData.addEventListener("submit", async (e) => {
+      e.preventDefault(); // verhindern, dass die Seite neu lädt
+
+      const emailInput = document.getElementById("email") as HTMLInputElement | null;
+      const passwordInput = document.getElementById("password") as HTMLInputElement | null;
+
+      if (!emailInput || !passwordInput) return;
+
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      console.log("Eingegeben:", email, password);
+
+    const useMock = false; // anpassen fürs testen
+
+    try {
+      const response = useMock
+        ? { ok: true, json: async () => ({ token: "fake-token", email }) }
+        : await fetch("https://localhost:8080/api/auth/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+          });
+        
+      const data = await response.json();
+      if (response.ok) {
+        console.log("Login success:", data);
+
+        if(onSuccess) onSuccess();
+      }
+      console.log("Response:", data);
+    } catch (err) {
+      console.error("Network error", err);
+      showErrorBanner("An error occurred. Please try again.");
+    }
+    });
+    }
+  
+    if (showBanner) {
+      const banner = document.getElementById("logout-banner");
+      if (banner) {
+        banner.classList.remove("hidden");
+        setTimeout(() => {
+          banner.classList.remove("animate-fade-in");
+          banner.classList.add("animate-fade-out");
+          setTimeout(() => banner.remove(), 500);
+        }, 3000);
+      }
+    }
   }
 }
+
 
 
 /* export function renderLogin(): string {
